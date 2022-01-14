@@ -21,7 +21,8 @@ from tensorflow.keras.models import load_model
 from flask import Flask , render_template  , request , send_file
 from tensorflow.keras.preprocessing.image import load_img , img_to_array
 
-IMDB_API_KEY = os.environ("IMBD_API_KEY")
+print(os.environ)
+IMDB_API_KEY = os.environ["IMDB_API_KEY"]
 
 class ProjectApp(Flask):
     def __init__(self):
@@ -90,7 +91,7 @@ def predict_emotion():
     info['birthDate'] = res['birthDate']
     info['birthPlace'] = res['birthPlace']
     info['heightCentimeters'] = res['heightCentimeters']
-    
+    print(res)
     return {"emotion" : output_emotion["Type"], "additional_info": info}
 
 if __name__ == "__main__":

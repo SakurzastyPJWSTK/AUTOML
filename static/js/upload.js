@@ -73,10 +73,43 @@ Upload.prototype.doUploadPredictEmotion = function (url) {
             return myXhr;
         },
         success: function (data) {
-            var label = 'emotion_label';
-            var item = document.getElementById(label);
-            
-            item.innerHTML = JSON.stringify(data)
+            let table = document.createElement('table');
+            let thead = document.createElement('thead');
+            let tbody = document.createElement('tbody');
+
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            let row_1 = document.createElement('tr');
+            let heading_1 = document.createElement('th');
+            heading_1.innerHTML = "Emocja";
+            let heading_2 = document.createElement('th');
+            heading_2.innerHTML = "Data urodzenia";
+            let heading_3 = document.createElement('th');
+            heading_3.innerHTML = "Miejsce urodzenia";
+            let heading_4 = document.createElement('th');
+            heading_4.innerHTML = "Wzrost";
+
+            row_1.appendChild(heading_1);
+            row_1.appendChild(heading_2);
+            row_1.appendChild(heading_3);
+            row_1.appendChild(heading_4);
+            thead.appendChild(row_1);
+            let row_2 = document.createElement('tr');
+            let row_2_data_1 = document.createElement('td');
+            row_2_data_1.innerHTML = data['emotion'];
+            let row_2_data_2 = document.createElement('td');
+            row_2_data_2.innerHTML = data['additional_info']['birthDate'];
+            let row_2_data_3 = document.createElement('td');
+            row_2_data_3.innerHTML = data['additional_info']['birthPlace'];
+            let row_2_data_4 = document.createElement('td');
+            row_2_data_4.innerHTML = data['additional_info']['heightCentimeters'];
+            row_2.appendChild(row_2_data_1);
+            row_2.appendChild(row_2_data_2);
+            row_2.appendChild(row_2_data_3);
+            row_2.appendChild(row_2_data_4);
+            tbody.appendChild(row_2);
+
+            document.getElementById('emotion_label').appendChild(table);
 
             //alert(data['result']);
         },
