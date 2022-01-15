@@ -73,6 +73,11 @@ Upload.prototype.doUploadPredictEmotion = function (url) {
             return myXhr;
         },
         success: function (data) {
+
+            while(document.getElementById('emotion_label').hasChildNodes()){
+                document.getElementById('emotion_label').removeChild(document.getElementById('emotion_label').firstChild);
+            }
+
             let table = document.createElement('table');
             let thead = document.createElement('thead');
             let tbody = document.createElement('tbody');
@@ -109,8 +114,7 @@ Upload.prototype.doUploadPredictEmotion = function (url) {
             row_2.appendChild(row_2_data_4);
             tbody.appendChild(row_2);
 
-            if (!document.getElementById('emotion_label').hasChildNodes())
-                document.getElementById('emotion_label').appendChild(table);
+            document.getElementById('emotion_label').appendChild(table);
 
             //alert(data['result']);
         },
