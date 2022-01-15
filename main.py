@@ -9,7 +9,7 @@ import os
 import requests
 import pprint
 import pathlib
-pathlib.WindowsPath = pathlib.PosixPath
+pathlib.WindowsPath = pathlib.
 
 from io import BytesIO
 
@@ -61,8 +61,8 @@ def predict():
     img.thumbnail((250, 250), Image.ANTIALIAS)
     img = numpy.asarray(img)
     pred, pred_idx, probs = load_learner(filename).predict(img)
-    print(pred, probs)
-    return {"result": pred}
+    print(pred, pred_idx, probs)
+    return {"result": pred, "propability": f'{probs[pred_idx]*100:.02f}'}
 
 
 @app.route('/predict_emotion', methods=['POST'])
