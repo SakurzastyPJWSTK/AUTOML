@@ -109,7 +109,8 @@ Upload.prototype.doUploadPredictEmotion = function (url) {
             row_2.appendChild(row_2_data_4);
             tbody.appendChild(row_2);
 
-            document.getElementById('emotion_label').appendChild(table);
+            if (!document.getElementById('emotion_label').hasChildNodes())
+                document.getElementById('emotion_label').appendChild(table);
 
             //alert(data['result']);
         },
