@@ -8,7 +8,6 @@ import boto3
 import os
 import requests
 import pprint
-import pathlib
 pathlib.WindowsPath = pathlib.PosixPath
 
 from io import BytesIO

@@ -1,71 +1,59 @@
 <!DOCTYPE html>
 <html lang="pl-PL">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href={{url_for('static' , filename = 'css/normalize.css')}}>
-        <link rel="stylesheet" href={{url_for('static' , filename = 'css/grid.css')}}>
-        <link rel='stylesheet' href={{url_for('static' , filename = 'css/style.css')}}>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet" type='text/css'>
-        <title>Klasyfikacja aktorów, Projekt Gosi Adriana i Karola</title>
-        <meta name="keywords" content="cutom file input, styling, label, cross-browser, accessible, input type file" />
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
-		
-		<style>
-			.content {
-			  max-width: 500px;
-			  margin: auto;
-			  }
-			.bg-img{
-				width: 100%;
-				height: 100vh;
-				background-image:linear-gradient(rgba(0, 0, 0, 0.71),rgba(0, 0, 0, 0.7)),url('static/css/front.jpg');
-				background-size: cover;
-				background-position: center;
-			}
-			
-		</style>
 
+<head>
+    <meta charset=UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+    <title>Codename: Avengers</title>
+</head>
 
-    </head>
-	
-    <body>
-	<div class="bg-img">
-	<div class="content">
-        <div class = "index-main">
+<body>
+<div class="bg-img">
+    <div class="content">
+        <div class="index-main">
 
-        <div style = "width : 100%; padding-top : 5%;">
-            <div class = "header-content">
-                 <h1 style = "text-align: center;color: white"><span class="header-content-text">Klasyfikacja aktorów, Projekt Gosi Adriana i Karola</span></h1>
+            <div>
+                <div class="header-content">
+                    <h1>Codename: Avengers</h1>
+                    <h2>Prototyp</h2>
+                </div>
             </div>
-        </div>
 
-        <div class="upload-section">
+            <div class="information-section">
+                <h3>Jak korzystać z aplikacji?</h3>
+                <span class="instruction">To proste! Wystarczy że: <br>
+                    1. Dodasz zdjęcie wybranego przez siebie aktora z serii filmów Marvel Avenger's <br>
+                    2. A następnie klikniesz w przycisk Załaduj <br>
+                </span>
+            </div>
 
-            <div class="upload-file">
-                <!-- <form class = "file-form" action="/success" method="post", enctype="multipart/form-data"> -->
-                    <input class="file-form-input" accept="image/*" type="file" , name = "file", id = "file_to_predict"/>
+
+            <div class="upload-section">
+                <div class="upload-file">
+                    <input class="file-form-input" accept="image/*" type="file" name="file" id="file_to_predict"
+                           data-show-upload="false"/>
                     <button class="btn btn-success btn-block" onclick="predict();">Załaduj</button>
-                <!-- </form> -->
-            </div>
+                </div>
 
-            <div id=response>
-                <img id=uploaded_image_placeholder>
-                <label id="aktor_label"></label>
-                <div id="emotion_label"></label>
-            </div>
-            
-            <div class = "header-content-sub">
-                    <p style = "text-align: center; margin-top: 15px;color: red" class="header-content-info">{{error}}</p>
+                <div class="response" id=response>
+                    <div class="image-frame">
+                        <img id=uploaded_image_placeholder>
+                    </div>
+                    <label>Twój aktor to: </label>
+                    <label id="aktor_label"></label>
+                    <div class="table-list" id="emotion_label"></div>
+                </div>
             </div>
         </div>
-        </div>
-	     </div>  
-	</div>			 
-	</div>	 
-    </body>
+        <footer>
+            <p>Grupa projektowa PSY I KOTY: Adrian Kordek, Karol Śledź, Małgorzata Kurel</p>
+        </footer>
+    </div>
+</div>
+</body>
 </html>
