@@ -9,7 +9,7 @@ import os
 import requests
 import pprint
 import pathlib
-pathlib.WindowsPath = pathlib.
+pathlib.WindowsPath = pathlib.PosixPath
 
 from io import BytesIO
 
